@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English YBOSH - Ағылшын тілін үйрену</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #292F36;
+            --light: #F7FFF7;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Fredoka One', cursive;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        
+        /* Анимациялар */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-10deg); }
+            100% { transform: rotate(0deg); }
+        }
+        
+        .animate-fade {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .animate-wave {
+            display: inline-block;
+            animation: wave 2s ease-in-out infinite;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.3, 0, 0, 1);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .header-scrolled {
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 107, 107, 0.9);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: rotate(-5deg);
+        }
+        
+        .logo span {
+            color: var(--accent);
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.8rem;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a i {
+            margin-right: 8px;
+        }
+        
+        /* Auth Buttons */
+        .auth-buttons .btn {
+            margin-left: 1rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            background: var(--gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://assets.codepen.io/3364143/7b3dr.png') no-repeat;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 5%;
+            bottom: 0;
+            height: 80%;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.2rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.3, 0, 0, 1);
+            cursor: pointer;
+            box-shadow: var(--card-shadow);
+            font-size: 1rem;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 50px;
+            z-index: -1;
+            transform: translateZ(-1px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.3, 0, 0, 1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
+        }
+        
+        .btn i {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover i {
+            transform: rotate(15deg);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .btn-lg {
+            padding: 1.2rem 2.8rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 8rem 0;
+            background-color: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .section-title {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title span {
+            color: var(--primary);
+        }
+        
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.3, 0, 0, 1);
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: calc(var(--order) * 0.1s);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
+        }
+        
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 10px 20px -5px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        /* Courses Section */
+        .courses {
+            padding: 8rem 0;
+            background-color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .courses::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .courses::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .courses-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .courses-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .course-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.3, 0, 0, 1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: calc(var(--order) * 0.1s);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
+        }
+        
+        .course-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .course-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .course-card:hover .course-img img {
+            transform: scale(1.1);
+        }
+        
+        .course-level {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .course-content h3 {
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .course-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--dark);
+            opacity: 0.7;
+        }
+        
+        .course-meta span {
+            display: flex;
+            align-items: center;
+            margin-right: 1.5rem;
+        }
+        
+        .course-meta i {
+            margin-right: 6px;
+            color: var(--primary);
+        }
+        
+        .course-description {
+            margin-bottom: 2rem;
+            color: var(--dark);
+            opacity: 0.8;
+            flex-grow: 1;
+        }
+        
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .price.free {
+            color: var(--secondary);
+        }
+        
+        /* Vocabulary Trainer */
+        .vocabulary-trainer {
+            padding: 8rem 0;
+            background-color: white;
+            position: relative;
+        }
+        
+        .trainer-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--light);
+            padding: 4rem;
+            border-radius: 30px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .trainer-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .trainer-container::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .trainer-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .trainer-header h3 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .trainer-header p {
+            color: var(--dark);
+            opacity: 0.8;
+        }
+        
+        .word-display {
+            font-size: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--dark);
+            position: relative;
+            z-index: 2;
+            font-family: 'Fredoka One', cursive;
+        }
+        
+        .translation-input-container {
+            position: relative;
+            margin-bottom: 2rem;
+            z-index: 2;
+        }
+        
+        .translation-input {
+            width: 100%;
+            padding: 1.5rem;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            background-color: white;
+            box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .translation-input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 5px 20px -5px rgba(255, 107, 107, 0.3);
+        }
+        
+        .input-label {
+            position: absolute;
+            left: 1.5rem;
+            top: -0.8rem;
+            background-color: var(--light);
+            padding: 0 1rem;
+            font-size: 1rem;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+        
+        .trainer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .feedback {
+            text-align: center;
+            margin: 2rem 0;
+            min-height: 40px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .correct {
+            color: var(--secondary);
+        }
+        
+        .incorrect {
+            color: var(--primary);
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background-color: white;
+            flex: 1;
+            box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-box h4 {
+            font-size: 1rem;
+            color: var(--dark);
+            opacity: 0.8;
+            margin-bottom: 0.8rem;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--dark);
+            font-family: 'Fredoka One', cursive;
+        }
+        
+        .progress-container {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            margin: 2rem 0;
+            height: 15px;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                          rgba(255, 255, 255, 0) 0%, 
+                          rgba(255, 255, 255, 0.8) 50%, 
+                          rgba(255, 255, 255, 0) 100%);
+            animation: progressShine 2s infinite;
+        }
+        
+        @keyframes progressShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 8rem 0;
+            background: var(--gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://assets.codepen.io/3364143/7b3dr.png') no-repeat;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .testimonials-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonials .section-title {
+            color: white;
+        }
+        
+        .testimonials .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            transition: all 0.4s cubic-bezier(0.3, 0, 0, 1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: calc(var(--order) * 0.1s);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text::before {
+            top: -1.5rem;
+            left: -1rem;
+        }
+        
+        .testimonial-text::after {
+            bottom: -3rem;
+            right: -1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1.5rem;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.3rem;
+            font-size: 1.2rem;
+        }
+        
+        .author-info p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 6rem 0 2rem;
+            position: relative;
+        }
+        
+        .footer-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+            font-family: 'Fredoka One', cursive;
+            font-weight: 400;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-col ul li a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s cubic-bezier(0.3, 0, 0, 1);
+        }
+        
+        .social-links a:hover {
+            background: var(--gradient);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.8;
+        }
+        
+        .floating-element.shape-1 {
+            top: 20%;
+            left: 5%;
+            width: 100px;
+            height: 100px;
+            background-color: var(--accent);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            filter: blur(30px);
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating-element.shape-2 {
+            bottom: 10%;
+            right: 10%;
+            width: 150px;
+            height: 150px;
+            background-color: var(--secondary);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            filter: blur(40px);
+            animation: float 10s ease-in-out infinite reverse;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero-image {
+                opacity: 0.3;
+                right: -100px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.8rem;
+            }
+            
+            .feature-card {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--dark);
+                padding: 6rem 2rem 2rem;
+                transition: right 0.4s cubic-bezier(0.3, 0, 0, 1);
+                z-index: 1000;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0 0 1.5rem 0;
+            }
+            
+            nav ul li a {
+                font-size: 1.2rem;
+                padding: 0.8rem 0;
+            }
+            
+            .auth-buttons {
+                display: none;
+            }
+            
+            .hero {
+                text-align: center;
+                padding-top: 100px;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .trainer-container {
+                padding: 3rem 2rem;
+            }
+            
+            .word-display {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .trainer-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Elements -->
+    <div class="floating-element shape-1"></div>
+    <div class="floating-element shape-2"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo animate-pulse">
+                <i class="fas fa-bolt"></i> English<span>YBOSH</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li>
+                        <a href="#"><i class="fas fa-home"></i> Басты бет</a>
+                    </li>
+                    <li>
+                        <a href="#courses"><i class="fas fa-book-open"></i> Курстар</a>
+                    </li>
+                    <li>
+                        <a href="#trainer"><i class="fas fa-gamepad"></i> Жаттықтырғыш</a>
+                    </li>
+                    <li>
+                        <a href="#testimonials"><i class="fas fa-star"></i> Пікірлер</a>
+                    </li>
+                    <li>
+                        <a href="#contact"><i class="fas fa-envelope"></i> Байланыс</a>
+                    </li>
+                </ul>
+                
+               
+            </nav>
+            
+            <div class="auth-buttons desktop-auth">
+                <a href="./register.html" class="btn btn-outline">Кіру</a>
+                <a href="./login.html" class="btn">Тіркелу</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Ағылшын тілін <span class="animate-wave">қызықты</span> түрде үйреніңіз!</h1>
+                <p>Біздің интерактивті платформа мектеп оқушыларына ағылшын тілін оқуға қуаныш әкеледі</p>
+                <div class="hero-buttons">
+                    <a href="#courses" class="btn btn-lg"><i class="fas fa-rocket"></i> Қазір бастау</a>
+                    <a href="#features" class="btn btn-lg btn-outline"><i class="fas fa-play-circle"></i> Видео сабақтар</a>
+                </div>
+            </div>
+            
+            <img src="./Ыбырай Компания.jpeg" alt="" title="Негізін қалаушы" class="hero-image" style="width: 150px; height: 150px; border: radius 90px; margin-bottom: 450px; border-radius: 50%;">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header animate-fade">
+                <h2 class="section-title">Біздің <span>артықшылықтарымыз</h2>         
+                </div>
+            
+                    <div class="features-grid">
+                        <div class="feature-card" style="--order: 0;">
+                            <div class="feature-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h3>Ойындап үйрену</h3>
+                            <p>Қызықты ойындар мен тесттер арқылы ағылшын тілін оңай меңгеріңіз</p>
+                        </div>
+                        
+                        <div class="feature-card" style="--order: 1;">
+                            <div class="feature-icon">
+                                <i class="fas fa-headphones"></i>
+                            </div>
+                            <h3>Тыңдау дағдылары</h3>
+                            <p>Ағылшын тіліндегі әртүрлі акценттерді тыңдап, түсіну дағдыларыңызды жетілдіріңіз</p>
+                        </div>
+                        
+                        <div class="feature-card" style="--order: 2;">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Жеке бағыт</h3>
+                            <p>Өз деңгейіңізге қарай арнайы дайындалған сабақ жоспарлары</p>
+                        </div>
+                        
+                        <div class="feature-card" style="--order: 3;">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h3>Жетістіктер</h3>
+                            <p>Әр тапсырмадан кейін алған жетістіктеріңізбен бөлісіңіз</p>
+                        </div>
+                        
+                        <div class="feature-card" style="--order: 4;">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Қауымдастық</h3>
+                            <p>Басқа оқушылармен бірге үйреніп, бір-біріңізге көмектесіңіз</p>
+                        </div>
+                        
+                        <div class="feature-card" style="--order: 5;">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Кез келген жерде</h3>
+                            <p>Қосымшамыз арқылы кез келген уақытта, кез келген жерден оқыңыз</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Courses Section -->
+            <section class="courses" id="courses">
+                <div class="container courses-container">
+                    <div class="courses-header animate-fade">
+                        <div>
+                            <h2 class="section-title">Біздің <span>курстар</span></h2>
+                            <p class="section-subtitle">Өз деңгейіңізге қарай оқу бағдарламасын таңдаңыз</p>
+                        </div>
+                        <a href="#" class="btn">Барлық курстар <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="courses-grid">
+                        <div class="course-card" style="--order: 0;">
+                            <div class="course-img">
+                                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Beginner English">
+                                <span class="course-level">Бастауыш</span>
+                            </div>
+                            <div class="course-content">
+                                <h3>Ағылшын тілінің негіздері</h3>
+                                <div class="course-meta">
+                                    <span><i class="fas fa-clock"></i> 8 апта</span>
+                                    <span><i class="fas fa-user-graduate"></i> 0+ оқушы</span>
+                                </div>
+                                <div class="course-description">
+                                    Ағылшын тілін нөлден бастап үйреніңіз. Негізгі сөздік қор мен грамматика.
+                                </div>
+                                <div class="course-footer">
+                                    <div class="price free">Тегін</div>
+                                    <a href="./free-course.html" class="btn btn-sm">Қосылу</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="course-card" style="--order: 1;">
+                            <div class="course-img">
+                                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Intermediate English">
+                                <span class="course-level">Орта</span>
+                            </div>
+                            <div class="course-content">
+                                <h3>Күнделікті ағылшын</h3>
+                                <div class="course-meta">
+                                    <span><i class="fas fa-clock"></i> 12 апта</span>
+                                    <span><i class="fas fa-user-graduate"></i> 1000+ оқушы</span>
+                                </div>
+                                <div class="course-description">
+                                    Күнделікті өмірде қажетті ағылшын тілін меңгеріңіз. Сөйлеу және жазу дағдылары.
+                                </div>
+                                <div class="course-footer">
+                                    <div class="price">9,990 ₸</div>
+                                    <a href="#" class="btn btn-sm">Қосылу</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="course-card" style="--order: 2;">
+                            <div class="course-img">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Advanced English">
+                                <span class="course-level">Кәсіби</span>
+                            </div>
+                            <div class="course-content">
+                                <h3>Бизнес ағылшын</h3>
+                                <div class="course-meta">
+                                    <span><i class="fas fa-clock"></i> 16 апта</span>
+                                    <span><i class="fas fa-user-graduate"></i> 500+ оқушы</span>
+                                </div>
+                                <div class="course-description">
+                                    Кәсіби деңгейде ағылшын тілін меңгеріңіз. Жұмыс кезінде қажетті дағдылар.
+                                </div>
+                                <div class="course-footer">
+                                    <div class="price">14,990 ₸</div>
+                                    <a href="#" class="btn btn-sm">Қосылу</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Vocabulary Trainer -->
+            <section class="vocabulary-trainer" id="trainer">
+                <div class="container">
+                    <div class="section-header animate-fade">
+                        <h2 class="section-title">Сөздік <span>жаттықтырғыш</span></h2>
+                        <p class="section-subtitle">Жаңа сөздерді оңай жаттау үшін интерактивті жаттықтырғыш</p>
+                    </div>
+                    
+                    <div class="trainer-container">
+                        <div class="trainer-header">
+                            <h3>Ағылшын-қазақ сөздік</h3>
+                            <p>Сөздің дұрыс аудармасын жазыңыз</p>
+                        </div>
+                        
+                        <div class="word-display" id="wordDisplay">Бастау үшін "Бастау" батырмасын басыңыз және сөздеріңіздің дұрыс жазылуын қадағалаңыз!</div>
+                        
+                        <div class="translation-input-container">
+                            <label class="input-label">Аудармасы</label>
+                            <input type="text" class="translation-input" id="translationInput" placeholder="Сөздің қазақша аудармасын енгізіңіз..." disabled>
+                        </div>
+                        
+                        <div class="trainer-buttons">
+                            <button class="btn" id="checkBtn"><i class="fas fa-check"></i> Тексеру</button>
+                            <button class="btn" id="startBtn"><i class="fas fa-play"></i> Бастау</button>
+                            <button class="btn" id="nextBtn" style="display: none;"><i class="fas fa-forward"></i> Келесі</button>
+                        </div>
+                        
+                        <div class="feedback" id="feedback"></div>
+                        
+                        <div class="stats-container">
+                            <div class="stat-box">
+                                <h4>Дұрыс жауаптар</h4>
+                                <div class="stat-value" id="correctCount">0</div>
+                            </div>
+                            <div class="stat-box">
+                                <h4>Қате жауаптар</h4>
+                                <div class="stat-value" id="incorrectCount">0</div>
+                            </div>
+                            <div class="stat-box">
+                                <h4>Қалған сөздер</h4>
+                                <div class="stat-value" id="remainingCount">10</div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Testimonials Section -->
+            <section class="testimonials" id="testimonials">
+                <div class="container testimonials-container">
+                    <div class="section-header">
+                        <h2 class="section-title">Оқушылардың <span>пікірлері</span></h2>
+                        <p class="section-subtitle">English YBOSH платформасын пайдаланған оқушылардың бағалары</p>
+                    </div>
+                    
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card" style="--order: 0;">
+                            <div class="testimonial-text">
+                                English YBOSH арқылы ағылшын тілін үйрену өте қызықты болды. Ойын түріндегі тапсырмалар мен жаттықтырғыштар материалды тез жаттауға көмектесті.
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Айгерім">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Айгерім Сәтбаева</h4>
+                                    <p>10 сынып оқушысы</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card" style="--order: 1;">
+                            <div class="testimonial-text">
+                                Мектептегі ағылшын тілінен әлсіз баға алдым, бірақ осы платформаның көмегімен 3 ай ішінде деңгейімді көтердім. Қазір мұғалімдерім таңғалады!
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Арман">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Арман Жұманов</h4>
+                                    <p>9 сынып оқушысы</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card" style="--order: 2;">
+                            <div class="testimonial-text">
+                                Бұл платформаның ең жақсы жағы - қызықты әдістермен үйретуі. Қарапайым емес, бірақ өте тиімді. Ұсынылады!
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Динара">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Динара Қасымова</h4>
+                                    <p>11 сынып оқушысы</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Newsletter Section -->
+            <section class="newsletter">
+                <div class="container">
+                    <h2>Жаңалықтарға жазылыңыз</h2>
+                    <p>Жаңа курстар, жеңілдіктер және пайдалы материалдар туралы бірінші болып біліңіз</p>
+                    
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Электрондық поштаңыз" required>
+                        <button type="submit" class="newsletter-btn">Жазылу <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </section>
+        
+            <!-- Footer -->
+            <footer id="contact">
+                <div class="container footer-container">
+                    <div class="footer-grid">
+                        <div class="footer-col">
+                            <h3>English YBOSH</h3>
+                            <p>Мектеп оқушыларына арналған ағылшын тілін үйрету платформасы. Қызықты және тиімді әдістер.</p>
+                            
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-telegram"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-col">
+                            <h3>Байланыс</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-map-marker-alt"></i> Шымкент қаласы</a></li>
+                                <li><a href="mailto:info@englishspark.kz"><i class="fas fa-envelope"></i> info@englishspark.kz</a></li>
+                                <li><a href="tel:+77771234567"><i class="fas fa-phone-alt"></i> +7 777 123 45 67</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-col">
+                            <h3>Пайдалы сілтемелер</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-chevron-right"></i> Жиі қойылатын сұрақтар</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right"></i> Қолдану шарттары</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right"></i> Жеке деректер саясаты</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right"></i> Кәмелетке толмағандар үшін</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-col">
+                            <h3>Қосымшаны жүктеу</h3>
+                            <p>Біздің қосымшаны жүктеп алып, кез келген уақытта оқуға болады</p>
+                            <div class="app-download">
+                                <a href="#" class="btn btn-sm"><i class="fab fa-google-play"></i> Google Play</a>
+                                <a href="#" class="btn btn-sm" style="margin-top: 10px;"><i class="fab fa-app-store"></i> App Store</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-bottom">
+                        <p>&copy; 2025 English YBOSH. Барлық құқықтар қорғалған.</p>
+                    </div>
+                </div>
+            </footer>
+        
+            <script>
+                // Vocabulary Trainer Logic
+                const vocabulary = [
+                    { word: "apple", translation: "алма" },
+                    { word: "book", translation: "кітап" },
+                    { word: "cat", translation: "мысық" },
+                    { word: "dog", translation: "ит" },
+                    { word: "house", translation: "үй" },
+                    { word: "school", translation: "мектеп" },
+                    { word: "teacher", translation: "мұғалім" },
+                    { word: "student", translation: "оқушы" },
+                    { word: "pen", translation: "қалам" },
+                    { word: "friend", translation: "дос" }
+                ];
+        
+                // DOM Elements
+                const wordDisplay = document.getElementById('wordDisplay');
+                const translationInput = document.getElementById('translationInput');
+                const checkBtn = document.getElementById('checkBtn');
+                const startBtn = document.getElementById('startBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                const feedback = document.getElementById('feedback');
+                const correctCount = document.getElementById('correctCount');
+                const incorrectCount = document.getElementById('incorrectCount');
+                const remainingCount = document.getElementById('remainingCount');
+                const progressBar = document.getElementById('progressBar');
+        
+                // Trainer Variables
+                let currentWordIndex;
+                let correctAnswers = 0;
+                let incorrectAnswers = 0;
+                let wordsRemaining = vocabulary.length;
+                let currentVocabulary = [...vocabulary];
+        
+                // Initialize Trainer
+                function initTrainer() {
+                    currentWordIndex = Math.floor(Math.random() * currentVocabulary.length);
+                    wordDisplay.textContent = currentVocabulary[currentWordIndex].word;
+                    translationInput.value = '';
+                    feedback.textContent = '';
+                    translationInput.disabled = false;
+                    checkBtn.style.display = 'inline-block';
+                    nextBtn.style.display = 'none';
+                    translationInput.focus();
+                    
+                    // Add animation to word display
+                    wordDisplay.style.animation = 'fadeIn 0.5s ease-out';
+                    setTimeout(() => {
+                        wordDisplay.style.animation = '';
+                    }, 500);
+                }
+        
+                // Check User Answer
+                function checkAnswer() {
+                    const userAnswer = translationInput.value.trim().toLowerCase();
+                    const correctAnswer = currentVocabulary[currentWordIndex].translation.toLowerCase();
+        
+                    if (userAnswer === correctAnswer) {
+                        // Correct answer
+                        feedback.textContent = 'Дұрыс! 👍';
+                        feedback.className = 'feedback correct';
+                        correctAnswers++;
+                        correctCount.textContent = correctAnswers;
+                        
+                        // Add celebration effect
+                        wordDisplay.style.transform = 'scale(1.1)';
+                        wordDisplay.style.color = '#4ECDC4';
+                        setTimeout(() => {
+                            wordDisplay.style.transform = 'scale(1)';
+                        }, 300);
+                    } else {
+                        // Incorrect answer
+                        feedback.textContent = `Қате. Дұрыс жауап: "${currentVocabulary[currentWordIndex].translation}"`;
+                        feedback.className = 'feedback incorrect';
+                        incorrectAnswers++;
+                        incorrectCount.textContent = incorrectAnswers;
+                        
+                        // Add shake effect
+                        translationInput.style.animation = 'shake 0.5s';
+                        setTimeout(() => {
+                            translationInput.style.animation = '';
+                        }, 500);
+                    }
+        
+                    wordsRemaining--;
+                    remainingCount.textContent = wordsRemaining;
+                    
+                    // Update progress bar
+                    const progress = ((vocabulary.length - wordsRemaining) / vocabulary.length) * 100;
+                    progressBar.style.width = `${progress}%`;
+        
+                    checkBtn.style.display = 'none';
+                    nextBtn.style.display = 'inline-block';
+                    translationInput.disabled = true;
+                }
+        
+                // Move to Next Word
+                function nextWord() {
+                    // Remove current word from array
+                    currentVocabulary.splice(currentWordIndex, 1);
+                    
+                    if (currentVocabulary.length > 0) {
+                        initTrainer();
+                    } else {
+                        // Training completed
+                        wordDisplay.textContent = 'Құттықтаймыз! Сіз барлық сөздерді өттіңіз! 🎉';
+                        wordDisplay.style.fontSize = '2rem';
+                        wordDisplay.style.color = '#4ECDC4';
+                        translationInput.style.display = 'none';
+                        checkBtn.style.display = 'none';
+                        nextBtn.style.display = 'none';
+                        feedback.textContent = `Нәтиже: ${correctAnswers} дұрыс, ${incorrectAnswers} қате`;
+                        
+                        // Show restart button
+                        startBtn.style.display = 'inline-block';
+                        startBtn.innerHTML = '<i class="fas fa-redo"></i> Қайта бастау';
+                    }
+                }
+        
+                // Event Listeners
+                startBtn.addEventListener('click', () => {
+                    startBtn.style.display = 'none';
+                    currentVocabulary = [...vocabulary];
+                    correctAnswers = 0;
+                    incorrectAnswers = 0;
+                    wordsRemaining = vocabulary.length;
+                    correctCount.textContent = '0';
+                    incorrectCount.textContent = '0';
+                    remainingCount.textContent = vocabulary.length;
+                    progressBar.style.width = '0%';
+                    wordDisplay.style.fontSize = '3rem';
+                    wordDisplay.style.color = '';
+                    translationInput.style.display = 'block';
+                    initTrainer();
+                });
+        
+                checkBtn.addEventListener('click', checkAnswer);
+                nextBtn.addEventListener('click', nextWord);
+        
+                translationInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        if (checkBtn.style.display !== 'none') {
+                            checkAnswer();
+                        } else if (nextBtn.style.display !== 'none') {
+                            nextWord();
+                        }
+                    }
+                });
+        
+                // Header Scroll Effect
+                window.addEventListener('scroll', () => {
+                    const header = document.getElementById('header');
+                    if (window.scrollY > 100) {
+                        header.classList.add('header-scrolled');
+                    } else {
+                        header.classList.remove('header-scrolled');
+                    }
+                });
+        
+                // Mobile Menu Toggle
+                document.addEventListener('DOMContentLoaded', function() {
+                    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                    const mainNav = document.getElementById('mainNav');
+                    
+                    mobileMenuBtn.addEventListener('click', () => {
+                        mainNav.classList.toggle('active');
+                        mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
+                            '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                    });
+                    
+                    // Smooth scrolling for anchor links
+                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                        anchor.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            
+                            if (this.getAttribute('href') === '#') return;
+                            
+                            const target = document.querySelector(this.getAttribute('href'));
+                            if (target) {
+                                window.scrollTo({
+                                    top: target.offsetTop - 80,
+                                    behavior: 'smooth'
+                                });
+                                
+                                // Close mobile menu if open
+                                if (mainNav.classList.contains('active')) {
+                                    mainNav.classList.remove('active');
+                                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                                }
+                            }
+                        });
+                    });
+                    
+                    // Add animation to elements when they come into view
+                    const animateOnScroll = () => {
+                        const elements = document.querySelectorAll('.feature-card, .course-card, .testimonial-card');
+                        
+                        elements.forEach(element => {
+                            const elementTop = element.getBoundingClientRect().top;
+                            const windowHeight = window.innerHeight;
+                            
+                            if (elementTop < windowHeight - 100) {
+                                element.style.animationPlayState = 'running';
+                            }
+                        });
+                    };
+                    
+                    // Initialize animations
+                    document.querySelectorAll('.feature-card, .course-card, .testimonial-card').forEach(el => {
+                        el.style.animationPlayState = 'paused';
+                    });
+                    
+                    window.addEventListener('scroll', animateOnScroll);
+                    animateOnScroll(); // Run once on load
+                });
+        
+                // Add shake animation for incorrect answers
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes shake {
+                        0%, 100% { transform: translateX(0); }
+                        20% { transform: translateX(-10px); }
+                        40% { transform: translateX(10px); }
+                        60% { transform: translateX(-10px); }
+                        80% { transform: translateX(10px); }
+                    }
+                `;
+                document.head.appendChild(style);
+            </script>
+        </body>
+        </html>
