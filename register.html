@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English YBOSH - Тіркелу</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #292F36;
+            --light: #F7FFF7;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gradient);
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .auth-container {
+            background-color: white;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 500px;
+            padding: 3rem;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .auth-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .logo h1 span {
+            color: var(--secondary);
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .auth-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .auth-header p {
+            color: var(--dark);
+            opacity: 0.7;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: var(--gradient);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn i {
+            margin-right: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .auth-footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .auth-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .terms {
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--dark);
+            opacity: 0.7;
+        }
+        
+        .terms a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 576px) {
+            .auth-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .auth-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="logo">
+            <img src="./Ыбырай Компания.jpeg" style="width: 150px; height: 150px;border-radius: 50%;" alt="English Spark Logo">
+            <h1>English<span>YBOSH</span></h1>
+        </div>
+        
+        <div class="auth-header">
+            <h2>Жаңа аккаунт құру</h2>
+            <p>Бізбен бірге ағылшын тілін үйреніңіз</p>
+        </div>
+        
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="fullName">Толық аты-жөні</label>
+                <input type="text" id="fullName" placeholder="Аты-жөніңізді енгізіңіз" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Электрондық пошта</label>
+                <input type="email" id="email" placeholder="example@mail.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Құпия сөз</label>
+                <input type="password" id="password" placeholder="Құпия сөзді жасаңыз" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword">Құпия сөзді растау</label>
+                <input type="password" id="confirmPassword" placeholder="Құпия сөзіңізді қайта енгізіңіз" required>
+            </div>
+            
+            <button type="submit" class="btn"><i class="fas fa-user-plus"></i> Тіркелу</button>
+            
+            <div class="terms">
+                Тіркелу арқылы сіз біздің <a href="#">Қызмет көрсету шарттарымызға</a> және <a href="#">Құпиялылық саясатымызға</a> келісесіз
+            </div>
+        </form>
+        
+        <div class="auth-footer">
+            Аккаунтыңыз бар ма? <a href="login.html">Кіру</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Құпия сөздер сәйкес келмейді!');
+                return;
+            }
+            
+            // Мұнда тіркеу логикасын қосу керек
+            console.log('Тіркеу әрекеті:', { fullName, email, password });
+            
+            // Әдетте бұл жерде API-ге сұрау жіберіледі
+            // Мысалға:
+            // fetch('/api/register', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ fullName, email, password })
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     if (data.success) {
+            //         localStorage.setItem('token', data.token);
+            //         window.location.href = 'profile.html';
+            //     } else {
+            //         alert(data.message || 'Тіркеу кезінде қате орын алды');
+            //     }
+            // });
+            
+            // Демонстрация үшін:
+            alert('Тіркелу сәтті аяқталды! (демо)');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
