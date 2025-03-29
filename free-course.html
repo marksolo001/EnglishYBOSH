@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English YBOSH - Тегін ағылшын тілі курсы</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #292F36;
+            --light: #F7FFF7;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Fredoka One', cursive;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        /* Course Hero Section */
+        .course-hero {
+            padding: 5rem 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+        
+        .course-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .course-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.2rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: var(--card-shadow);
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Course Content */
+        .course-content {
+            padding: 5rem 0;
+        }
+        
+        .module {
+            background-color: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .module h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+        
+        .lesson {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .lesson h3 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .lesson h3 i {
+            margin-right: 1rem;
+            color: var(--secondary);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 2rem 0;
+            border-radius: 15px;
+            background-color: #000;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Practice Section */
+        .practice {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+        
+        .practice h4 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .course-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .module {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-bolt"></i> English<span>YBOSH</span>
+            </a>
+            <a href="index.html" class="btn">Негізгі бетке оралу</a>
+        </div>
+    </header>
+
+    <!-- Course Hero -->
+    <section class="course-hero">
+        <div class="container">
+            <h1>Тегін ағылшын тілі курсы</h1>
+            <p>Ағылшын тілінің негіздерін 8 аптада үйреніңіз. Бұл курс бастауыш деңгейдегілерге арналған.</p>
+            <a href="#start" class="btn"><i class="fas fa-play"></i> Қазір бастау</a>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section class="course-content" id="start">
+        <div class="container">
+            <div class="module">
+                <h2>Модуль 1: Алфавит және негізгі сөздер</h2>
+                
+                <div class="lesson">
+                    <h3><i class="fas fa-video"></i> Сабақ 1: Ағылшын әліпбиі</h3>
+                    <p>Ағылшын әріптерін дұрыс айтуды және жазуды үйреніңіз.</p>
+                    
+                    <div class="video-container">
+                        <!-- YouTube видеоны ауыстыру үшін -->
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="practice">
+                        <h4><i class="fas fa-pencil-alt"></i> Практикалық тапсырма</h4>
+                        <p>Ағылшын әліпбиін 5 рет жазып шығыңыз және әр әріпті дұрыс айта білуіңізді тексеріңіз.</p>
+                    </div>
+                </div>
+                
+                <div class="lesson">
+                    <h3><i class="fas fa-video"></i> Сабақ 2: Негізгі сәлемдемелер</h3>
+                    <p>Ағылшын тілінде қалай сәлемдесуді үйреніңіз.</p>
+                    
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="practice">
+                        <h4><i class="fas fa-pencil-alt"></i> Практикалық тапсырма</h4>
+                        <p>Келесі сәлемдемелерді ағылшын тіліне аударыңыз: "Қалайсыз?", "Сау болыңыз", "Кеш қайыр".</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="module">
+                <h2>Модуль 2: Негізгі грамматика</h2>
+                
+                <div class="lesson">
+                    <h3><i class="fas fa-video"></i> Сабақ 3: To be етістігі</h3>
+                    <p>To be (болу) етістігінің қолданылуын үйреніңіз.</p>
+                    
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="practice">
+                        <h4><i class="fas fa-pencil-alt"></i> Практикалық тапсырма</h4>
+                        <p>Келесі сөйлемдерді ағылшын тіліне аударыңыз: "Мен оқушымын", "Ол мұғалім", "Біз қуаныштымыз".</p>
+                    </div>
+                </div>
+                
+                <div class="lesson">
+                    <h3><i class="fas fa-video"></i> Сабақ 4: Articles (a, an, the)</h3>
+                    <p>Ағылшын тіліндегі артикльдерді қалай дұрыс қолдану керектігін үйреніңіз.</p>
+                    
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="practice">
+                        <h4><i class="fas fa-pencil-alt"></i> Практикалық тапсырма</h4>
+                        <p>Келесі сөйлемдерде дұрыс артикльді таңдаңыз: "This is ___ book.", "I have ___ apple.", "___ sun is bright."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="module">
+                <h2>Модуль 3: Күнделікті өмір сөздігі</h2>
+                
+                <div class="lesson">
+                    <h3><i class="fas fa-video"></i> Сабақ 5: Отбасы мүшелері</h3>
+                    <p>Отбасы мүшелерін ағылшын тілінде қалай атау керектігін үйреніңіз.</p>
+                    
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="practice">
+                        <h4><i class="fas fa-pencil-alt"></i> Практикалық тапсырма</h4>
+                        <p>Өз отбасыңызды ағылшын тілінде сипаттаңыз (5-6 сөйлем).</p>
+                    </div>
+                </div>
+                
+                <div class="lesson">
+                    <h3><i class="fas fa-video"></i> Сабақ 6: Тамақтар және сусындар</h3>
+                    <p>Таныс тамақтардың және сусындардың ағылшынша атауларын үйреніңіз.</p>
+                    
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="practice">
+                        <h4><i class="fas fa-pencil-alt"></i> Практикалық тапсырма</h4>
+                        <p>Таңғы асқа қандай тамақтарды жегіңіз келетінін ағылшын тілінде жазыңыз.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="module" style="text-align: center;">
+                <h2>Курсты аяқтадыңыз!</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Сіз ағылшын тілінің негіздерін үйрендіңіз. Келесі деңгейге өту үшін біздің басқа курстарымызды қараңыз.</p>
+                <a href="index.html" class="btn"><i class="fas fa-graduation-cap"></i> Басқа курстарды қарау</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Құпиялылық саясаты</a>
+                <a href="#">Қызмет көрсету шарттары</a>
+                <a href="#">Біз туралы</a>
+                <a href="#">Байланыс</a>
+            </div>
+            <p>&copy; 2023 English Spark. Барлық құқықтар қорғалған.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Сабақтарды сақтау функционалы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Сабақтардың прогрессін сақтау
+            const lessons = document.querySelectorAll('.lesson');
+            
+            // Әр сабаққа тыңдаушы қосу
+            lessons.forEach(lesson => {
+                const video = lesson.querySelector('iframe');
+                if (video) {
+                    video.addEventListener('load', function() {
+                        // Видео жүктелгенде белгі қою
+                        lesson.dataset.loaded = 'true';
+                    });
+                }
+            });
+            
+            // Локалдық сақтауға прогресті сақтау
+            function saveProgress(lessonId) {
+                localStorage.setItem(`lesson-${lessonId}`, 'completed');
+            }
+            
+            // Локалдық сақтаудан прогресті алу
+            function loadProgress() {
+                lessons.forEach((lesson, index) => {
+                    if (localStorage.getItem(`lesson-${index}`)) {
+                        lesson.style.opacity = '0.7';
+                        const completedMark = document.createElement('span');
+                        completedMark.innerHTML = ' <i class="fas fa-check-circle" style="color: var(--secondary);"></i>';
+                        lesson.querySelector('h3').appendChild(completedMark);
+                    }
+                });
+            }
+            
+            loadProgress();
+        });
+    </script>
+</body>
+</html>
